@@ -24,7 +24,9 @@ class TripPlanningRequest(BaseModel):
         min_length=10,
         max_length=2000,
         description="Natural language travel request",
-        examples=["I want a 4-day Amsterdam trip for a couple, mid-range budget, close to museums."],
+        examples=[
+            "I want a 4-day Amsterdam trip for a couple, mid-range budget, close to museums."
+        ],
     )
     city: str | None = Field(
         default=None,
@@ -75,7 +77,15 @@ class TripPlanningRequest(BaseModel):
     def validate_style(cls, v: str | None) -> str | None:
         if v is None:
             return v
-        allowed = {"cultural", "adventure", "relaxation", "nightlife", "family", "business", "romantic"}
+        allowed = {
+            "cultural",
+            "adventure",
+            "relaxation",
+            "nightlife",
+            "family",
+            "business",
+            "romantic",
+        }
         if v.lower() not in allowed:
             raise ValueError(f"style must be one of {allowed}")
         return v.lower()

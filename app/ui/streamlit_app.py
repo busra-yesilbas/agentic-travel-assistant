@@ -192,7 +192,7 @@ with st.sidebar:
     st.divider()
     st.markdown("### Quick Sample Queries")
     for i, q in enumerate(SAMPLE_QUERIES):
-        if st.button(f"Sample {i+1}", key=f"sample_{i}", use_container_width=True):
+        if st.button(f"Sample {i + 1}", key=f"sample_{i}", use_container_width=True):
             st.session_state["query_input"] = q
 
     st.divider()
@@ -285,13 +285,11 @@ with tab_plan:
 
         if intent.get("interests"):
             st.markdown(
-                "**Interests detected:** "
-                + " · ".join(f"`{i}`" for i in intent["interests"])
+                "**Interests detected:** " + " · ".join(f"`{i}`" for i in intent["interests"])
             )
         if intent.get("special_requests"):
             st.markdown(
-                "**Special requests:** "
-                + " · ".join(f"`{s}`" for s in intent["special_requests"])
+                "**Special requests:** " + " · ".join(f"`{s}`" for s in intent["special_requests"])
             )
 
         st.divider()
@@ -307,7 +305,7 @@ with tab_plan:
                 hotel = rh.get("hotel", {})
                 score = rh.get("score", 0)
                 card_class = "hotel-card hotel-card-top" if i == 0 else "hotel-card"
-                rank_emoji = ["🥇", "🥈", "🥉", "4.", "5."][i] if i < 5 else f"{i+1}."
+                rank_emoji = ["🥇", "🥈", "🥉", "4.", "5."][i] if i < 5 else f"{i + 1}."
 
                 with st.expander(
                     f"{rank_emoji} **{hotel.get('name', '—')}** — "
@@ -344,7 +342,9 @@ with tab_plan:
                     # Feature contributions
                     contributions = rh.get("feature_contributions", [])
                     if contributions:
-                        top_contribs = [c for c in contributions[:4] if c.get("contribution", 0) > 0.01]
+                        top_contribs = [
+                            c for c in contributions[:4] if c.get("contribution", 0) > 0.01
+                        ]
                         if top_contribs:
                             contrib_data = {
                                 c["feature"].replace("_", " ").title(): round(
@@ -502,7 +502,9 @@ with tab_eval:
                             st.error(f"Error: {qr['error']}")
                         else:
                             mc1, mc2, mc3, mc4 = st.columns(4)
-                            mc1.metric("Constraint sat.", f"{qr.get('constraint_satisfaction', 0):.0%}")
+                            mc1.metric(
+                                "Constraint sat.", f"{qr.get('constraint_satisfaction', 0):.0%}"
+                            )
                             mc2.metric("Relevance", f"{qr.get('recommendation_relevance', 0):.0%}")
                             mc3.metric("Completeness", f"{qr.get('itinerary_completeness', 0):.0%}")
                             mc4.metric("Helpfulness", f"{qr.get('helpfulness_score', 0):.0%}")

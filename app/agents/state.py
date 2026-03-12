@@ -27,8 +27,7 @@ from app.schemas.requests import TripPlanningRequest
 class AgentProtocol(Protocol):
     """Structural protocol that every pipeline agent must satisfy."""
 
-    def run(self, state: TripPlanningState) -> TripPlanningState:
-        ...
+    def run(self, state: TripPlanningState) -> TripPlanningState: ...
 
 
 @dataclass
@@ -87,9 +86,11 @@ class TripPlanningState:
     @property
     def is_complete(self) -> bool:
         """True if all mandatory stages have produced output."""
-        return all([
-            self.parsed_intent is not None,
-            len(self.ranked_hotels) > 0,
-            self.itinerary is not None,
-            self.final_answer is not None,
-        ])
+        return all(
+            [
+                self.parsed_intent is not None,
+                len(self.ranked_hotels) > 0,
+                self.itinerary is not None,
+                self.final_answer is not None,
+            ]
+        )

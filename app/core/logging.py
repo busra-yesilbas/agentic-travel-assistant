@@ -17,9 +17,7 @@ from structlog.types import EventDict, WrappedLogger
 from app.core.config import get_settings
 
 
-def _add_app_info(
-    logger: WrappedLogger, method_name: str, event_dict: EventDict
-) -> EventDict:
+def _add_app_info(logger: WrappedLogger, method_name: str, event_dict: EventDict) -> EventDict:
     """Inject application-level context into every log record."""
     settings = get_settings()
     event_dict.setdefault("app", settings.app_name)

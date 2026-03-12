@@ -58,8 +58,12 @@ def sample_ranked_hotel(sample_hotel) -> RankedHotel:
         rank=1,
         score=0.82,
         feature_contributions=[
-            FeatureContribution(feature="budget_match", raw_value=1.0, weight=0.25, contribution=0.25),
-            FeatureContribution(feature="museum_affinity", raw_value=1.0, weight=0.08, contribution=0.08),
+            FeatureContribution(
+                feature="budget_match", raw_value=1.0, weight=0.25, contribution=0.25
+            ),
+            FeatureContribution(
+                feature="museum_affinity", raw_value=1.0, weight=0.08, contribution=0.08
+            ),
         ],
         explanation="Strong budget match and museum proximity.",
     )
@@ -75,10 +79,10 @@ def complete_itinerary() -> Itinerary:
         days=[
             ItineraryDay(
                 day=i + 1,
-                theme=f"Day {i+1} Theme",
-                morning=f"Morning activity day {i+1}",
-                afternoon=f"Afternoon activity day {i+1}",
-                evening=f"Evening activity day {i+1}",
+                theme=f"Day {i + 1} Theme",
+                morning=f"Morning activity day {i + 1}",
+                afternoon=f"Afternoon activity day {i + 1}",
+                evening=f"Evening activity day {i + 1}",
             )
             for i in range(4)
         ],
@@ -143,9 +147,7 @@ class TestConstraintSatisfaction:
 # Recommendation relevance tests
 # ---------------------------------------------------------------------------
 class TestRecommendationRelevance:
-    def test_relevant_hotel_scores_high(
-        self, metrics, perfect_intent, sample_ranked_hotel
-    ) -> None:
+    def test_relevant_hotel_scores_high(self, metrics, perfect_intent, sample_ranked_hotel) -> None:
         score = metrics.recommendation_relevance(
             ranked_hotels=[sample_ranked_hotel],
             intent=perfect_intent,
@@ -161,9 +163,7 @@ class TestRecommendationRelevance:
         )
         assert score == 0.0
 
-    def test_score_in_valid_range(
-        self, metrics, perfect_intent, sample_ranked_hotel
-    ) -> None:
+    def test_score_in_valid_range(self, metrics, perfect_intent, sample_ranked_hotel) -> None:
         score = metrics.recommendation_relevance(
             ranked_hotels=[sample_ranked_hotel],
             intent=perfect_intent,
@@ -176,9 +176,7 @@ class TestRecommendationRelevance:
 # Itinerary completeness tests
 # ---------------------------------------------------------------------------
 class TestItineraryCompleteness:
-    def test_complete_itinerary_scores_high(
-        self, metrics, complete_itinerary
-    ) -> None:
+    def test_complete_itinerary_scores_high(self, metrics, complete_itinerary) -> None:
         score = metrics.itinerary_completeness(
             itinerary=complete_itinerary,
             expected_days=4,
@@ -194,17 +192,13 @@ class TestItineraryCompleteness:
             trip_name="Test",
             city="Amsterdam",
             total_days=4,
-            days=[
-                ItineraryDay(day=1, morning="Morning", afternoon="Afternoon")
-            ],
+            days=[ItineraryDay(day=1, morning="Morning", afternoon="Afternoon")],
         )
         score = metrics.itinerary_completeness(itinerary=partial, expected_days=4)
         assert score < 0.7
 
     def test_score_in_valid_range(self, metrics, complete_itinerary) -> None:
-        score = metrics.itinerary_completeness(
-            itinerary=complete_itinerary, expected_days=4
-        )
+        score = metrics.itinerary_completeness(itinerary=complete_itinerary, expected_days=4)
         assert 0.0 <= score <= 1.0
 
 
@@ -231,9 +225,7 @@ class TestAnswerHelpfulness:
         assert score == 0.0
 
     def test_very_short_answer_scores_low(self, metrics, perfect_intent) -> None:
-        score = metrics.answer_helpfulness(
-            final_answer="Here is your trip.", intent=perfect_intent
-        )
+        score = metrics.answer_helpfulness(final_answer="Here is your trip.", intent=perfect_intent)
         assert score < 0.5
 
     def test_score_in_valid_range(self, metrics, perfect_intent) -> None:

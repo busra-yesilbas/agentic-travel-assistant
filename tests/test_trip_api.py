@@ -45,9 +45,15 @@ def test_trip_plan_returns_200(client: TestClient) -> None:
 def test_trip_plan_response_has_required_fields(client: TestClient) -> None:
     data = client.post("/trip/plan", json=AMSTERDAM_REQUEST).json()
     required_fields = [
-        "request_id", "parsed_intent", "ranked_hotels",
-        "itinerary", "final_answer", "critique",
-        "stage_latencies", "total_latency_ms", "metadata",
+        "request_id",
+        "parsed_intent",
+        "ranked_hotels",
+        "itinerary",
+        "final_answer",
+        "critique",
+        "stage_latencies",
+        "total_latency_ms",
+        "metadata",
     ]
     for field in required_fields:
         assert field in data, f"Missing field: {field}"

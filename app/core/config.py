@@ -66,9 +66,7 @@ class Settings(BaseSettings):
     llm_max_tokens: int = Field(default=2048, alias="LLM_MAX_TOKENS")
     llm_timeout_seconds: int = Field(default=30, alias="LLM_TIMEOUT_SECONDS")
     openai_api_key: str = Field(default="", alias="OPENAI_API_KEY")
-    openai_base_url: str = Field(
-        default="https://api.openai.com/v1", alias="OPENAI_BASE_URL"
-    )
+    openai_base_url: str = Field(default="https://api.openai.com/v1", alias="OPENAI_BASE_URL")
 
     # --- API server ---
     api_host: str = Field(default="0.0.0.0", alias="API_HOST")

@@ -96,9 +96,7 @@ class HotelRanker:
         contributions.sort(key=lambda c: c.contribution, reverse=True)
         return round(float(np.clip(total_score, 0.0, 1.0)), 4), contributions
 
-    def rank(
-        self, hotels: list[Hotel], intent: TripIntent, top_k: int = 5
-    ) -> list[RankedHotel]:
+    def rank(self, hotels: list[Hotel], intent: TripIntent, top_k: int = 5) -> list[RankedHotel]:
         """
         Score and rank all candidate hotels.
 
@@ -143,9 +141,7 @@ class HotelRanker:
     ) -> str:
         """Generate a concise natural language explanation for a hotel's ranking."""
         # Top 3 contributing features (excluding neutral 0.5-weight features)
-        top_features = [
-            c for c in contributions[:4] if c.raw_value >= 0.6
-        ][:3]
+        top_features = [c for c in contributions[:4] if c.raw_value >= 0.6][:3]
 
         if not top_features:
             return f"{hotel.name} scores {score:.0%} overall with solid baseline ratings."

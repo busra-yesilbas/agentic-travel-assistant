@@ -66,12 +66,8 @@ class TripPlanningWorkflow:
 
         # Agent instantiation
         self._intent_agent = IntentAgent(llm=llm, prompt_manager=prompt_manager)
-        self._retrieval_agent = RetrievalAgent(
-            retrieval_service=RetrievalService(dataset=dataset)
-        )
-        self._ranking_agent = RankingAgent(
-            ranking_service=RankingService()
-        )
+        self._retrieval_agent = RetrievalAgent(retrieval_service=RetrievalService(dataset=dataset))
+        self._ranking_agent = RankingAgent(ranking_service=RankingService())
         self._itinerary_agent = ItineraryAgent(
             itinerary_service=ItineraryService(llm=llm, prompt_manager=prompt_manager)
         )

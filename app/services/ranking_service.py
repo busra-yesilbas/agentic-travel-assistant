@@ -25,9 +25,7 @@ class RankingService:
 
     def __init__(self) -> None:
         self._settings = get_settings()
-        self._ranker = HotelRanker(
-            feature_weights=self._settings.ranking_feature_weights
-        )
+        self._ranker = HotelRanker(feature_weights=self._settings.ranking_feature_weights)
 
     def rank_hotels(
         self,

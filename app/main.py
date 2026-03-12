@@ -41,6 +41,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
     # Warm up the dataset service on startup
     from app.services.dataset_service import get_dataset_service
+
     dataset = get_dataset_service()
     hotels = dataset.get_hotels()
     attractions = dataset.get_attractions()
@@ -52,6 +53,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
     # Pre-warm the workflow singleton
     from app.agents.planner import get_workflow
+
     get_workflow()
     logger.info("tripgenie.ready")
 
@@ -105,9 +107,7 @@ def create_app() -> FastAPI:
     # Global exception handler for TripGenieError
     # ---------------------------------------------------------------------------
     @app.exception_handler(TripGenieError)
-    async def tripgenie_exception_handler(
-        request: Request, exc: TripGenieError
-    ) -> JSONResponse:
+    async def tripgenie_exception_handler(request: Request, exc: TripGenieError) -> JSONResponse:
         return JSONResponse(
             status_code=400,
             content={"error": exc.message, "detail": exc.detail},

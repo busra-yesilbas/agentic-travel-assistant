@@ -48,15 +48,11 @@ class TripPlanningResponse(BaseModel):
     ranked_hotels: list[RankedHotel] = Field(
         ..., description="Top hotel recommendations ranked by fit score"
     )
-    itinerary: Itinerary = Field(
-        ..., description="Day-by-day trip itinerary"
-    )
+    itinerary: Itinerary = Field(..., description="Day-by-day trip itinerary")
     final_answer: str = Field(
         ..., description="Natural language response synthesising all recommendations"
     )
-    critique: Critique = Field(
-        ..., description="Quality assessment of the generated plan"
-    )
+    critique: Critique = Field(..., description="Quality assessment of the generated plan")
     stage_latencies: dict[str, float] = Field(
         default_factory=dict,
         description="Elapsed time (ms) for each workflow stage",

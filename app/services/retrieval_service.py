@@ -101,7 +101,11 @@ class RetrievalService:
         filtered = []
         for restaurant in all_restaurants:
             # Family trip: prefer family-friendly options
-            if intent.travel_style.value == "family" and not restaurant.family_friendly and restaurant.rating < 9.0:
+            if (
+                intent.travel_style.value == "family"
+                and not restaurant.family_friendly
+                and restaurant.rating < 9.0
+            ):
                 continue
             # Romantic: prefer romantic venues
             if intent.travel_style.value == "romantic":

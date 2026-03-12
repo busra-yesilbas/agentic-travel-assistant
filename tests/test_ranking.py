@@ -122,9 +122,7 @@ def family_intent() -> TripIntent:
 # Feature engineering tests
 # ---------------------------------------------------------------------------
 class TestFeatureExtraction:
-    def test_feature_vector_has_all_fields(
-        self, sample_hotels, mid_range_cultural_intent
-    ) -> None:
+    def test_feature_vector_has_all_fields(self, sample_hotels, mid_range_cultural_intent) -> None:
         fv = extract_features(sample_hotels[1], mid_range_cultural_intent)
         assert hasattr(fv, "budget_match")
         assert hasattr(fv, "location_score")
@@ -175,9 +173,7 @@ class TestFeatureExtraction:
         fv = extract_features(romantic_hotel, luxury_romantic_intent)
         assert fv.romantic_match == 1.0
 
-    def test_family_match_high_for_family_intent(
-        self, sample_hotels, family_intent
-    ) -> None:
+    def test_family_match_high_for_family_intent(self, sample_hotels, family_intent) -> None:
         family_hotel = sample_hotels[3]  # family_friendly=True
         fv = extract_features(family_hotel, family_intent)
         assert fv.family_match == 1.0
@@ -209,17 +205,13 @@ class TestHotelRanker:
         scores = [r.score for r in ranked]
         assert scores == sorted(scores, reverse=True)
 
-    def test_rank_numbers_are_sequential(
-        self, sample_hotels, mid_range_cultural_intent
-    ) -> None:
+    def test_rank_numbers_are_sequential(self, sample_hotels, mid_range_cultural_intent) -> None:
         ranker = HotelRanker()
         ranked = ranker.rank(sample_hotels, mid_range_cultural_intent, top_k=3)
         ranks = [r.rank for r in ranked]
         assert ranks == [1, 2, 3]
 
-    def test_scores_in_valid_range(
-        self, sample_hotels, mid_range_cultural_intent
-    ) -> None:
+    def test_scores_in_valid_range(self, sample_hotels, mid_range_cultural_intent) -> None:
         ranker = HotelRanker()
         ranked = ranker.rank(sample_hotels, mid_range_cultural_intent, top_k=5)
         for r in ranked:
@@ -267,16 +259,12 @@ class TestHotelRanker:
             assert isinstance(r.explanation, str)
             assert len(r.explanation) > 10
 
-    def test_empty_candidates_returns_empty(
-        self, mid_range_cultural_intent
-    ) -> None:
+    def test_empty_candidates_returns_empty(self, mid_range_cultural_intent) -> None:
         ranker = HotelRanker()
         ranked = ranker.rank([], mid_range_cultural_intent, top_k=5)
         assert ranked == []
 
-    def test_custom_weights_affect_ranking(
-        self, sample_hotels, mid_range_cultural_intent
-    ) -> None:
+    def test_custom_weights_affect_ranking(self, sample_hotels, mid_range_cultural_intent) -> None:
         """Hotels should rank differently when weights are changed drastically."""
         ranker_default = HotelRanker()
         ranker_review_heavy = HotelRanker(feature_weights={"review_score": 1.0})

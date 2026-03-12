@@ -120,7 +120,9 @@ class HelpfulnessService:
                 BudgetLevel.LUXURY: 4,
             }
             target_level = budget_map.get(intent.budget_level, 2)
-            avg_price = sum(rh.hotel.price_level for rh in ranked_hotels[:3]) / min(3, len(ranked_hotels))
+            avg_price = sum(rh.hotel.price_level for rh in ranked_hotels[:3]) / min(
+                3, len(ranked_hotels)
+            )
             if abs(avg_price - target_level) > 1.5:
                 budget_respected = False
                 flags.append("Hotel price levels do not closely match stated budget.")
@@ -130,16 +132,19 @@ class HelpfulnessService:
         # 2. Duration covered
         duration_included = len(itinerary.days) >= intent.days
         if not duration_included:
-            flags.append(f"Itinerary covers only {len(itinerary.days)} of {intent.days} requested days.")
+            flags.append(
+                f"Itinerary covers only {len(itinerary.days)} of {intent.days} requested days."
+            )
             suggestions.append("Extend the itinerary to cover all requested trip days.")
         score_components.append(1.0 if duration_included else 0.4)
 
         # 3. Activities sufficient — at least 2 activities mentioned per day
         activities_per_day = [
-            sum([bool(d.morning), bool(d.afternoon), bool(d.evening)])
-            for d in itinerary.days
+            sum([bool(d.morning), bool(d.afternoon), bool(d.evening)]) for d in itinerary.days
         ]
-        activities_sufficient = all(count >= 2 for count in activities_per_day) if activities_per_day else False
+        activities_sufficient = (
+            all(count >= 2 for count in activities_per_day) if activities_per_day else False
+        )
         if not activities_sufficient:
             flags.append("Some days have fewer than 2 activities scheduled.")
             suggestions.append("Add more activities or restaurant recommendations for sparse days.")

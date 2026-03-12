@@ -52,6 +52,7 @@ class FeatureVector:
 # Individual feature functions
 # ---------------------------------------------------------------------------
 
+
 def budget_match(hotel: Hotel, intent: TripIntent) -> float:
     """
     Score how closely the hotel's price level aligns with the user's budget.
@@ -92,7 +93,9 @@ def transport_match(hotel: Hotel, intent: TripIntent) -> float:
     """
     transport_interests = {"transport", "metro", "tram", "bus", "public transport", "commute"}
     user_cares = bool(transport_interests & {i.lower() for i in intent.interests})
-    user_cares = user_cares or any(p in ["near public transport", "easy transport"] for p in intent.accommodation_preferences)
+    user_cares = user_cares or any(
+        p in ["near public transport", "easy transport"] for p in intent.accommodation_preferences
+    )
 
     if hotel.near_public_transport:
         return 1.0
@@ -157,9 +160,8 @@ def nightlife_match(hotel: Hotel, intent: TripIntent) -> float:
     from app.schemas.domain import TravelStyle
 
     nightlife_interests = {"nightlife", "party", "clubs", "bars", "live music", "entertainment"}
-    user_wants = (
-        intent.travel_style == TravelStyle.NIGHTLIFE
-        or bool(nightlife_interests & {i.lower() for i in intent.interests})
+    user_wants = intent.travel_style == TravelStyle.NIGHTLIFE or bool(
+        nightlife_interests & {i.lower() for i in intent.interests}
     )
 
     if not user_wants:

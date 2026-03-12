@@ -55,7 +55,12 @@ class EvaluationMetrics:
 
         # Budget match
         if expected_budget:
-            budget_map = {"budget": "budget", "mid": "mid", "upper_mid": "upper_mid", "luxury": "luxury"}
+            budget_map = {
+                "budget": "budget",
+                "mid": "mid",
+                "upper_mid": "upper_mid",
+                "luxury": "luxury",
+            }
             expected_norm = budget_map.get(expected_budget.lower(), expected_budget)
             budget_match = intent.budget_level.value == expected_norm
             scores.append(1.0 if budget_match else 0.4)
@@ -93,7 +98,9 @@ class EvaluationMetrics:
             if "nightlife" in interest_set or "party" in interest_set:
                 feature_matches += int(hotel.near_nightlife)
                 checks += 1
-            if "transport" in interest_set or any("transport" in p.lower() for p in intent.accommodation_preferences):
+            if "transport" in interest_set or any(
+                "transport" in p.lower() for p in intent.accommodation_preferences
+            ):
                 feature_matches += int(hotel.near_public_transport)
                 checks += 1
             if "romantic" in interest_set or intent.travel_style.value == "romantic":
@@ -146,8 +153,7 @@ class EvaluationMetrics:
         # Activities per day (should have at least morning + afternoon or evening)
         if itinerary.days:
             activities_per_day = [
-                sum([bool(d.morning), bool(d.afternoon), bool(d.evening)])
-                for d in itinerary.days
+                sum([bool(d.morning), bool(d.afternoon), bool(d.evening)]) for d in itinerary.days
             ]
             avg_activities = sum(activities_per_day) / len(activities_per_day)
             activity_score = min(avg_activities / 3.0, 1.0)  # 3 activities = perfect
@@ -204,12 +210,28 @@ class EvaluationMetrics:
         scores.append(1.0 if days_mentioned else 0.5)
 
         # Contains practical advice signals
-        practical_keywords = ["book", "reserve", "advance", "tip", "recommend", "avoid", "best time"]
+        practical_keywords = [
+            "book",
+            "reserve",
+            "advance",
+            "tip",
+            "recommend",
+            "avoid",
+            "best time",
+        ]
         has_practical = any(kw in text for kw in practical_keywords)
         scores.append(1.0 if has_practical else 0.5)
 
         # Specificity: mentions at least a hotel name or attraction
-        specificity_words = ["hotel", "museum", "restaurant", "tour", "canal", "eiffel", "colosseum"]
+        specificity_words = [
+            "hotel",
+            "museum",
+            "restaurant",
+            "tour",
+            "canal",
+            "eiffel",
+            "colosseum",
+        ]
         is_specific = any(w in text for w in specificity_words)
         scores.append(1.0 if is_specific else 0.4)
 

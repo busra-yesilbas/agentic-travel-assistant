@@ -63,7 +63,7 @@ class ExperimentService:
         failed = 0
 
         for sample in sample_queries:
-            query_id = sample.get("id", f"query_{len(results)+1:03d}")
+            query_id = sample.get("id", f"query_{len(results) + 1:03d}")
             query_text = sample.get("query", "")
             expected_city = sample.get("expected_city", "")
             expected_days = sample.get("expected_days", 3)

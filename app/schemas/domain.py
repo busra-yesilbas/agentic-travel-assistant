@@ -103,9 +103,7 @@ class Hotel(BaseModel):
 
     @property
     def price_label(self) -> str:
-        return {1: "Budget", 2: "Mid-range", 3: "Upper mid-range", 4: "Luxury"}[
-            self.price_level
-        ]
+        return {1: "Budget", 2: "Mid-range", 3: "Upper mid-range", 4: "Luxury"}[self.price_level]
 
 
 # ---------------------------------------------------------------------------

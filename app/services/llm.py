@@ -80,19 +80,21 @@ class MockLLMProvider(LLMProvider):
         import time
 
         start = time.perf_counter()
-        system_content = next(
-            (m.content for m in messages if m.role == "system"), ""
-        ).lower()
-        user_content = next(
-            (m.content for m in messages if m.role == "user"), ""
-        )
+        system_content = next((m.content for m in messages if m.role == "system"), "").lower()
+        user_content = next((m.content for m in messages if m.role == "user"), "")
 
         # Order matters: more specific checks first
-        if "intent extraction" in system_content or "parse this travel request" in user_content.lower():
+        if (
+            "intent extraction" in system_content
+            or "parse this travel request" in user_content.lower()
+        ):
             content = self._mock_intent(user_content)
         elif "critique" in system_content or "quality assurance" in system_content:
             content = self._mock_critique(user_content)
-        elif "friendly and knowledgeable travel assistant" in system_content or "synthesize" in system_content:
+        elif (
+            "friendly and knowledgeable travel assistant" in system_content
+            or "synthesize" in system_content
+        ):
             content = self._mock_final_answer(user_content)
         elif "itinerary" in system_content or "day-by-day" in system_content:
             content = self._mock_itinerary(user_content)

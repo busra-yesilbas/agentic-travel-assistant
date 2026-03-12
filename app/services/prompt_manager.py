@@ -87,11 +87,10 @@ class PromptManager:
             logger.warning("prompts.render_missing_key", key=str(exc), template=template[:80])
             # Return template with unfilled placeholders replaced by empty string
             import re
+
             return re.sub(r"\{[^}]+\}", "", template)
 
-    def _fallback_messages(
-        self, prompt_key: str, variables: dict[str, Any]
-    ) -> list[Message]:
+    def _fallback_messages(self, prompt_key: str, variables: dict[str, Any]) -> list[Message]:
         """Minimal fallback messages when the template is missing."""
         context = str(variables)[:500]
         return [

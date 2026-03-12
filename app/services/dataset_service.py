@@ -59,8 +59,14 @@ class DatasetService:
         df = self._read_csv(path, "hotels")
 
         bool_cols = [
-            "family_friendly", "business_friendly", "near_museum",
-            "near_nightlife", "near_public_transport", "romantic", "luxury", "budget",
+            "family_friendly",
+            "business_friendly",
+            "near_museum",
+            "near_nightlife",
+            "near_public_transport",
+            "romantic",
+            "luxury",
+            "budget",
         ]
         for col in bool_cols:
             if col in df.columns:
@@ -88,7 +94,9 @@ class DatasetService:
                 )
                 hotels.append(hotel)
             except Exception as exc:
-                logger.warning("dataset.hotel_parse_error", row_id=row.get("hotel_id"), error=str(exc))
+                logger.warning(
+                    "dataset.hotel_parse_error", row_id=row.get("hotel_id"), error=str(exc)
+                )
 
         logger.info("dataset.hotels_loaded", count=len(hotels))
         return hotels
@@ -113,7 +121,7 @@ class DatasetService:
             try:
                 tags_raw = str(row.get("tags", ""))
                 # Tags may be stored as a quoted comma-separated string
-                tags = [t.strip().strip('"\'[]') for t in tags_raw.split(",") if t.strip()]
+                tags = [t.strip().strip("\"'[]") for t in tags_raw.split(",") if t.strip()]
                 attraction = Attraction(
                     attraction_id=str(row["attraction_id"]),
                     city=str(row["city"]),
