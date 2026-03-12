@@ -1,0 +1,232 @@
+{
+  "Amsterdam": {
+    "country": "Netherlands",
+    "language": "Dutch",
+    "currency": "EUR",
+    "timezone": "Europe/Amsterdam",
+    "best_months": ["April", "May", "June", "September"],
+    "avg_daily_budget": {
+      "budget": "60-80",
+      "mid": "120-180",
+      "upper_mid": "200-300",
+      "luxury": "400+"
+    },
+    "transport": {
+      "airport": "Amsterdam Schiphol (AMS)",
+      "airport_to_city": "15 min by train from Schiphol to Centraal",
+      "city_card": "I Amsterdam City Card — includes all museums + unlimited transport",
+      "main_modes": ["Tram", "Metro", "Bus", "Ferry", "Bike"],
+      "bike_friendly": true,
+      "tips": "A bike is often the fastest way to get around. OV-chipkaart is the reloadable transport card used across all modes."
+    },
+    "neighbourhoods": {
+      "Jordaan": "Charming canals, independent shops, cosy brown cafes. Best for romantic stays.",
+      "De Pijp": "Young and diverse, great for food and nightlife. Home to the Albert Cuyp market.",
+      "Museum Quarter": "Near the big three museums. Quiet residential feel.",
+      "Centrum/Canal Ring": "UNESCO canal belt. Most central but touristy.",
+      "Plantage": "East Amsterdam, zoo, botanical garden. Quiet and leafy.",
+      "Noord": "Post-industrial creative district. Trendy but off the beaten path."
+    },
+    "practical_info": {
+      "tipping": "Not mandatory but 5-10% appreciated for good service",
+      "language_tip": "Almost everyone speaks excellent English",
+      "safety": "Very safe city. Watch for bikes — they always have right of way.",
+      "tap_water": "Tap water is clean and safe to drink",
+      "common_scam": "Keep valuables secure on busy trams and at Centraal station"
+    },
+    "highlights": [
+      "Rijksmuseum — Rembrandt's Night Watch",
+      "Van Gogh Museum — world's largest Van Gogh collection",
+      "Anne Frank House — moving WWII history",
+      "Canal cruise at sunset",
+      "Jordaan neighbourhood walk",
+      "Keukenhof tulip gardens (seasonal, March-May)",
+      "Albert Cuyp market on Saturday mornings"
+    ],
+    "day_trips": ["Keukenhof (45 min)", "Zaanse Schans windmills (25 min)", "Haarlem (20 min)", "Delft (1h)", "Leiden (35 min)"]
+  },
+  "Paris": {
+    "country": "France",
+    "language": "French",
+    "currency": "EUR",
+    "timezone": "Europe/Paris",
+    "best_months": ["April", "May", "June", "September", "October"],
+    "avg_daily_budget": {
+      "budget": "70-100",
+      "mid": "150-250",
+      "upper_mid": "300-500",
+      "luxury": "600+"
+    },
+    "transport": {
+      "airport": "Charles de Gaulle (CDG) / Orly (ORY)",
+      "airport_to_city": "RER B to Gare du Nord ~35 min from CDG",
+      "city_card": "Paris Visite pass — unlimited metro/bus/RER + museum discounts",
+      "main_modes": ["Métro", "RER", "Bus", "Vélib' bikes", "Walking"],
+      "bike_friendly": true,
+      "tips": "The Paris Métro is fast and comprehensive. Carnets (books of 10 tickets) offer better value than single fares."
+    },
+    "neighbourhoods": {
+      "Le Marais": "Historic Jewish quarter, now LGBTQ+ hub and fashionable district. Museums, galleries, restaurants.",
+      "Saint-Germain": "Classic Left Bank intellectual district. Cafés, bookshops, galleries.",
+      "Montmartre": "Bohemian hilltop village. Artists, Sacré-Cœur, vineyard, and the best city views.",
+      "Bastille": "Lively neighbourhood, good for nightlife, jazz clubs, and authentic brasseries.",
+      "Champs-Élysées": "Tourist and luxury shopping boulevard. Expensive but iconic.",
+      "Latin Quarter": "Student neighbourhood around the Sorbonne. Cheap eats, bookshops, museums."
+    },
+    "practical_info": {
+      "tipping": "Service charge included by law. Small tips (€1-2) appreciated.",
+      "language_tip": "Always try 'Bonjour' first — Parisians respond much better to any attempt at French.",
+      "safety": "Generally safe. Be alert in crowded tourist areas and on the Métro.",
+      "tap_water": "Wallace fountains throughout the city offer free, clean drinking water",
+      "common_scam": "Gold ring scam at tourist sites, petition clipboards near Sacré-Cœur"
+    },
+    "highlights": [
+      "Musée du Louvre — Mona Lisa and so much more",
+      "Eiffel Tower at sunset",
+      "Musée d'Orsay — Impressionist masterpieces",
+      "Seine River evening cruise",
+      "Montmartre at sunrise",
+      "Versailles palace and gardens",
+      "Marais food walk and Le Falafel"
+    ],
+    "day_trips": ["Versailles (40 min RER)", "Mont Saint-Michel (3.5h TGV)", "Champagne country (1.5h TGV)", "Loire Valley (1h TGV)"]
+  },
+  "Barcelona": {
+    "country": "Spain",
+    "language": "Catalan / Spanish",
+    "currency": "EUR",
+    "timezone": "Europe/Madrid",
+    "best_months": ["May", "June", "September", "October"],
+    "avg_daily_budget": {
+      "budget": "50-80",
+      "mid": "100-160",
+      "upper_mid": "200-350",
+      "luxury": "450+"
+    },
+    "transport": {
+      "airport": "Barcelona El Prat (BCN)",
+      "airport_to_city": "Aerobus to Plaça Catalunya ~35 min / Metro L9 ~40 min",
+      "city_card": "Barcelona Card — metro + bus unlimited + museum discounts",
+      "main_modes": ["Metro", "Bus", "FGC", "Tram", "Bicing bikes"],
+      "bike_friendly": true,
+      "tips": "T-Casual (10-trip metro card) is the best value. The city is very walkable between Gothic Quarter and Eixample."
+    },
+    "neighbourhoods": {
+      "Gothic Quarter": "Ancient heart of the city. Dense medieval streets, best for walking.",
+      "El Born": "Fashionable boutiques, tapas bars, Picasso Museum. Very lively evenings.",
+      "Eixample": "Modernista architecture, Gaudí buildings, upscale shops and restaurants.",
+      "Barceloneta": "Beach neighbourhood. Seafood restaurants and summer beach culture.",
+      "Gràcia": "Bohemian, local neighbourhood with lively plazas and independent restaurants.",
+      "Poblenou": "Former industrial district, now a tech and creative hub with beach access."
+    },
+    "practical_info": {
+      "tipping": "Not obligatory. 5-10% for good restaurant service is appreciated.",
+      "language_tip": "Catalan is the official language. Spanish widely spoken. A few words of Catalan are warmly received.",
+      "safety": "Watch for pickpockets on Las Ramblas and the Barceloneta beach area.",
+      "tap_water": "Safe to drink but many locals prefer bottled water for the taste",
+      "common_scam": "The shell game and card tricks on Las Ramblas. Avoid participating."
+    },
+    "highlights": [
+      "Sagrada Família — Gaudí's unfinished masterpiece",
+      "Park Güell — mosaic terraces and city views",
+      "Picasso Museum in the Gothic Quarter",
+      "La Boqueria market at breakfast time",
+      "El Born tapas bar crawl",
+      "Barceloneta beach morning",
+      "Montjuïc at sunset"
+    ],
+    "day_trips": ["Montserrat monastery (1h by train)", "Sitges beach town (40 min)", "Tarragona Roman ruins (1h)", "Girona medieval city (1.5h by high-speed)"]
+  },
+  "Rome": {
+    "country": "Italy",
+    "language": "Italian",
+    "currency": "EUR",
+    "timezone": "Europe/Rome",
+    "best_months": ["April", "May", "October", "November"],
+    "avg_daily_budget": {
+      "budget": "60-90",
+      "mid": "120-200",
+      "upper_mid": "250-400",
+      "luxury": "500+"
+    },
+    "transport": {
+      "airport": "Fiumicino (FCO) / Ciampino (CIA)",
+      "airport_to_city": "Leonardo Express train to Roma Termini ~30 min from FCO",
+      "city_card": "Roma Pass — public transport + free museums entry",
+      "main_modes": ["Metro", "Bus", "Tram", "Walking"],
+      "bike_friendly": false,
+      "tips": "Rome is compact and best explored on foot. The 2-line Metro is limited — buses and trams fill the gaps. Validate your ticket every time."
+    },
+    "neighbourhoods": {
+      "Trastevere": "The most romantic neighbourhood. Cobblestone lanes, trattorias, and vibrant evening atmosphere.",
+      "Campo de' Fiori": "Lively market by day, buzzing social scene by night. Central and atmospheric.",
+      "Prati": "Upscale neighbourhood near the Vatican. Quiet streets, excellent restaurants, local feel.",
+      "Testaccio": "Rome's food neighbourhood. The old slaughterhouse market, authentic trattorias.",
+      "Monti": "Bohemian, vintage shops, wine bars. The trendiest neighbourhood for young locals.",
+      "Centro Storico": "Historic centre with the Pantheon, Piazza Navona, and the Jewish Ghetto."
+    },
+    "practical_info": {
+      "tipping": "Cover charge (coperto) is standard. A few euros for good service is appreciated.",
+      "language_tip": "Italian is essential for non-touristy restaurants — staff will warm to you immediately.",
+      "safety": "Pickpockets on the Metro (especially Line A) and at the Colosseum. Be vigilant.",
+      "tap_water": "Rome's nasoni (street fountains) flow with clean, cold water 24/7. Always free.",
+      "common_scam": "Unsolicited rose giving near tourist sites, extra charges added to restaurant bills"
+    },
+    "highlights": [
+      "Colosseum and Roman Forum — dawn entry recommended",
+      "Vatican Museums and Sistine Chapel",
+      "Pantheon — the best-preserved ancient building",
+      "Trevi Fountain at 6am",
+      "Trastevere dinner and evening walk",
+      "Borghese Gallery — book in advance",
+      "Pompeii day trip from Roma Termini"
+    ],
+    "day_trips": ["Pompeii (2.5h by train)", "Tivoli gardens (1h by bus)", "Ostia Antica ruins (45 min)", "Orvieto hilltop town (1h15 by train)"]
+  },
+  "Lisbon": {
+    "country": "Portugal",
+    "language": "Portuguese",
+    "currency": "EUR",
+    "timezone": "Europe/Lisbon",
+    "best_months": ["March", "April", "May", "October"],
+    "avg_daily_budget": {
+      "budget": "45-70",
+      "mid": "90-150",
+      "upper_mid": "180-300",
+      "luxury": "400+"
+    },
+    "transport": {
+      "airport": "Humberto Delgado Airport (LIS)",
+      "airport_to_city": "Metro Red Line to Oriente or Alameda ~20 min",
+      "city_card": "Lisboa Card — all public transport + free museums entry",
+      "main_modes": ["Metro", "Tram", "Bus", "Ferry", "Funicular"],
+      "bike_friendly": false,
+      "tips": "Lisbon is hilly — the historic trams are slow but charming. The Metro is fast for longer distances. NAVT card for unlimited transport."
+    },
+    "neighbourhoods": {
+      "Alfama": "The ancient Moorish quarter. Fado music, viewpoints, São Jorge Castle. Most romantic.",
+      "Bairro Alto": "Bohemian nightlife district. Packed with fado houses, bars, and restaurants.",
+      "Chiado": "Elegant shopping and café district. Fernando Pessoa's favourite café, A Brasileira.",
+      "Belém": "Riverside neighbourhood. Jerónimos Monastery, Belém Tower, pastel de nata.",
+      "LX Factory": "Post-industrial creative hub. Sunday market, restaurants, design shops.",
+      "Príncipe Real": "Lisbon's most refined neighbourhood. Antique shops, garden squares, luxury hotels."
+    },
+    "practical_info": {
+      "tipping": "Not obligatory. Round up or leave 5-10% for restaurant service.",
+      "language_tip": "Portuguese is different from Spanish — locals greatly appreciate any attempt at it.",
+      "safety": "One of Europe's safest capitals. Standard city precautions apply.",
+      "tap_water": "Safe to drink throughout the city",
+      "common_scam": "Overpriced tourist restaurants near Alfama viewpoints — walk one street back for better value"
+    },
+    "highlights": [
+      "Alfama fado show — book a casa de fado in advance",
+      "Belém Tower and Jerónimos Monastery",
+      "Pastel de nata at Pastéis de Belém",
+      "Tram 28 and Alfama walk",
+      "Sintra fairy-tale palaces day trip",
+      "Time Out Market dinner",
+      "LX Factory Sunday market"
+    ],
+    "day_trips": ["Sintra (40 min by train)", "Cascais beach (40 min by train)", "Setúbal and Arrábida (1.5h by bus)", "Évora Roman ruins (1.5h by train)"]
+  }
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "query_001",
+    "query": "I want a 4-day Amsterdam trip next month for a couple, mid-range budget, close to museums and public transport, with a canal cruise and one day trip.",
+    "expected_city": "Amsterdam",
+    "expected_days": 4,
+    "expected_budget": "mid",
+    "expected_travelers": 2,
+    "key_interests": ["museums", "canal cruise", "day trip"],
+    "expected_style": "romantic",
+    "notes": "Classic Amsterdam couple trip with cultural focus."
+  },
+  {
+    "id": "query_002",
+    "query": "Paris for 5 days with my family of four (two kids aged 8 and 11). Looking for family-friendly hotels, easy metro access, Louvre, Eiffel Tower, and maybe a Versailles day trip. Mid-range budget.",
+    "expected_city": "Paris",
+    "expected_days": 5,
+    "expected_budget": "mid",
+    "expected_travelers": 4,
+    "key_interests": ["museums", "family", "day trip", "landmarks"],
+    "expected_style": "family",
+    "notes": "Family trip with kids, needs family-friendly options."
+  },
+  {
+    "id": "query_003",
+    "query": "Barcelona solo trip, 3 days, budget traveller. I love architecture, food markets, and nightlife. Any neighbourhood near the Gothic Quarter or El Born.",
+    "expected_city": "Barcelona",
+    "expected_days": 3,
+    "expected_budget": "budget",
+    "expected_travelers": 1,
+    "key_interests": ["architecture", "food", "nightlife", "markets"],
+    "expected_style": "cultural",
+    "notes": "Budget solo traveller focused on food and architecture."
+  },
+  {
+    "id": "query_004",
+    "query": "Rome honeymoon trip, 6 days, luxury budget. We want romantic dinners, private tours of the Colosseum, Borghese Gallery, and a day trip to Pompeii. Nothing too touristy.",
+    "expected_city": "Rome",
+    "expected_days": 6,
+    "expected_budget": "luxury",
+    "expected_travelers": 2,
+    "key_interests": ["romance", "history", "private tours", "day trip"],
+    "expected_style": "romantic",
+    "notes": "Luxury honeymoon with exclusive experiences."
+  },
+  {
+    "id": "query_005",
+    "query": "Lisbon in April for 4 days, two adults, mid-range. We want fado, local food, Alfama, Sintra day trip, and to feel like locals rather than tourists.",
+    "expected_city": "Lisbon",
+    "expected_days": 4,
+    "expected_budget": "mid",
+    "expected_travelers": 2,
+    "key_interests": ["fado", "food", "culture", "day trip", "local experience"],
+    "expected_style": "cultural",
+    "notes": "Cultural immersion trip, anti-tourist sentiment."
+  },
+  {
+    "id": "query_006",
+    "query": "3-day Amsterdam trip for a group of 6 friends, we want to party, see some museums during the day, and stay somewhere central. Upper mid-range budget.",
+    "expected_city": "Amsterdam",
+    "expected_days": 3,
+    "expected_budget": "upper_mid",
+    "expected_travelers": 6,
+    "key_interests": ["nightlife", "museums", "central location"],
+    "expected_style": "nightlife",
+    "notes": "Group trip with dual focus on culture and nightlife."
+  },
+  {
+    "id": "query_007",
+    "query": "Business trip to Paris, 2 nights, need to be near transport and have good wifi and a proper workspace. Upper mid-range. Flying in Monday morning, out Wednesday evening.",
+    "expected_city": "Paris",
+    "expected_days": 2,
+    "expected_budget": "upper_mid",
+    "expected_travelers": 1,
+    "key_interests": ["business", "transport", "workspace"],
+    "expected_style": "business",
+    "notes": "Business traveller, efficiency-focused."
+  },
+  {
+    "id": "query_008",
+    "query": "Barcelona for 7 days, couple, mix of beach and culture, food-obsessed, relaxed itinerary. Mid to upper-mid budget. We love architecture and would like a day trip somewhere.",
+    "expected_city": "Barcelona",
+    "expected_days": 7,
+    "expected_budget": "mid",
+    "expected_travelers": 2,
+    "key_interests": ["beach", "food", "architecture", "day trip", "relaxation"],
+    "expected_style": "cultural",
+    "notes": "Longer trip with beach/culture mix."
+  },
+  {
+    "id": "query_009",
+    "query": "Lisbon budget trip for one, 5 days. I'm a solo female traveller who wants safe neighbourhood, good fado, seafood, and Sintra. Max 60 euros per day all-in if possible.",
+    "expected_city": "Lisbon",
+    "expected_days": 5,
+    "expected_budget": "budget",
+    "expected_travelers": 1,
+    "key_interests": ["fado", "seafood", "safety", "Sintra", "day trip"],
+    "expected_style": "cultural",
+    "notes": "Budget solo female traveller with safety concern."
+  },
+  {
+    "id": "query_010",
+    "query": "Rome with elderly parents, 4 days, comfortable pace, nothing too strenuous. They want the Vatican, Trevi Fountain, good Italian food, and ideally a nice hotel near the centre. Mid-range.",
+    "expected_city": "Rome",
+    "expected_days": 4,
+    "expected_budget": "mid",
+    "expected_travelers": 3,
+    "key_interests": ["Vatican", "history", "food", "comfortable pace", "central location"],
+    "expected_style": "cultural",
+    "notes": "Trip with elderly travellers, comfort and pace are key."
+  }
+]

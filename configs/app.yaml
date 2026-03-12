@@ -1,0 +1,97 @@
+# =============================================================================
+# TripGenie Application Configuration
+# =============================================================================
+# Values here can be overridden by environment variables.
+# See .env.example for the full list of supported env vars.
+
+app:
+  name: TripGenie
+  version: "0.1.0"
+  description: "Agentic Travel Planning & Booking Assistant"
+  environment: development  # development | staging | production
+
+# ---------------------------------------------------------------------------
+# API server
+# ---------------------------------------------------------------------------
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1
+  debug: false
+  cors_origins:
+    - "http://localhost:8501"
+    - "http://localhost:3000"
+  request_timeout_seconds: 60
+
+# ---------------------------------------------------------------------------
+# LLM provider
+# ---------------------------------------------------------------------------
+llm:
+  provider: mock          # mock | openai | openai_compatible
+  model: gpt-4o-mini
+  temperature: 0.3
+  max_tokens: 2048
+  timeout_seconds: 30
+  max_retries: 2
+  retry_delay_seconds: 1.0
+
+# ---------------------------------------------------------------------------
+# Agent workflow
+# ---------------------------------------------------------------------------
+workflow:
+  # Maximum seconds per individual agent step before timeout
+  step_timeout_seconds: 20
+  # Whether to continue on non-critical agent failures
+  fail_fast: false
+
+# ---------------------------------------------------------------------------
+# Retrieval
+# ---------------------------------------------------------------------------
+retrieval:
+  max_candidate_hotels: 20
+  max_candidate_attractions: 30
+  city_match_required: true
+
+# ---------------------------------------------------------------------------
+# Ranking
+# ---------------------------------------------------------------------------
+ranking:
+  top_k: 5
+  min_score_threshold: 0.0
+  feature_weights:
+    budget_match: 0.25
+    location_score: 0.20
+    review_score: 0.18
+    transport_match: 0.10
+    museum_affinity: 0.08
+    romantic_match: 0.07
+    family_match: 0.05
+    nightlife_match: 0.04
+    business_match: 0.03
+
+# ---------------------------------------------------------------------------
+# Itinerary generation
+# ---------------------------------------------------------------------------
+itinerary:
+  activities_per_day: 3
+  include_restaurants: true
+  include_transport_tips: true
+
+# ---------------------------------------------------------------------------
+# Evaluation
+# ---------------------------------------------------------------------------
+evaluation:
+  default_num_samples: 10
+  timeout_per_query_seconds: 30
+  save_results: false
+  results_path: data/eval_results.json
+
+# ---------------------------------------------------------------------------
+# Data paths
+# ---------------------------------------------------------------------------
+data:
+  hotels_path: data/hotels.csv
+  attractions_path: data/attractions.csv
+  restaurants_path: data/restaurants.csv
+  city_guides_path: data/city_guides.json
+  sample_queries_path: data/sample_user_queries.json
