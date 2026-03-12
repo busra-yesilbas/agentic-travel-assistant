@@ -22,14 +22,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-COPY pyproject.toml ./
-
-# Create a minimal stub so hatchling can generate package metadata,
-# then install all runtime dependencies declared in pyproject.toml.
-# The stub is replaced by the real source in the runtime stage.
-RUN mkdir -p app && touch app/__init__.py && \
-    pip install --upgrade pip && \
-    pip install . --no-cache-dir
+# Copy requirements first for better layer caching
+COPY requirements.txt ./
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt --no-cache-dir
 
 # ---------------------------------------------------------------------------
 # Runtime stage
@@ -39,8 +35,6 @@ FROM base AS runtime
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
 
-# Copy full source – WORKDIR (/app) is first on sys.path, so the real
-# app/ package here takes precedence over the empty stub in site-packages.
 COPY . .
 
 # Create non-root user
