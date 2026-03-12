@@ -8,7 +8,6 @@ fallback to ensure the pipeline never blocks.
 
 from __future__ import annotations
 
-from app.core.exceptions import LLMParseError
 from app.core.logging import get_logger
 from app.schemas.domain import (
     BudgetLevel,

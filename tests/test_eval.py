@@ -7,14 +7,13 @@ import pytest
 from app.ml.eval_metrics import EvaluationMetrics
 from app.schemas.domain import (
     BudgetLevel,
-    Critique,
+    FeatureContribution,
+    Hotel,
     Itinerary,
     ItineraryDay,
     RankedHotel,
-    Hotel,
     TravelStyle,
     TripIntent,
-    FeatureContribution,
 )
 
 

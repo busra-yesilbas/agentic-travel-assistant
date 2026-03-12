@@ -11,7 +11,6 @@ from __future__ import annotations
 import time
 
 from app.agents.state import TripPlanningState
-from app.core.exceptions import LLMParseError
 from app.core.logging import get_logger
 from app.services.llm import LLMProvider
 from app.services.prompt_manager import PromptManager
@@ -56,14 +55,19 @@ class AnswerAgent:
         itinerary_overview = self._format_itinerary(state)
         critique_notes = self._format_critique(state)
 
+        city = intent.city if intent is not None else "unknown"
+        days = intent.days if intent is not None else 0
+        travelers = intent.travelers if intent is not None else 1
+        budget_level = intent.budget_level.value if intent is not None else "mid"
+
         messages = self._prompts.get_messages(
             "final_answer",
             variables={
                 "query": state.user_query,
-                "city": intent.city,
-                "days": intent.days,
-                "travelers": intent.travelers,
-                "budget_level": intent.budget_level.value,
+                "city": city,
+                "days": days,
+                "travelers": travelers,
+                "budget_level": budget_level,
                 "ranked_hotels": hotel_summary,
                 "itinerary_overview": itinerary_overview,
                 "critique_notes": critique_notes,

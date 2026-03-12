@@ -15,7 +15,6 @@ from pathlib import Path
 from app.core.config import get_settings
 from app.core.logging import get_logger
 from app.ml.eval_metrics import EvaluationMetrics
-from app.schemas.domain import TripIntent
 from app.schemas.requests import TripPlanningRequest
 from app.schemas.responses import EvalQueryResult, EvalRunResponse
 

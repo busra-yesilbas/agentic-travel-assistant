@@ -9,7 +9,7 @@ back, building up a richer result at each stage.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, Protocol, runtime_checkable
 
 from app.schemas.domain import (
     Attraction,
@@ -21,6 +21,14 @@ from app.schemas.domain import (
     TripIntent,
 )
 from app.schemas.requests import TripPlanningRequest
+
+
+@runtime_checkable
+class AgentProtocol(Protocol):
+    """Structural protocol that every pipeline agent must satisfy."""
+
+    def run(self, state: TripPlanningState) -> TripPlanningState:
+        ...
 
 
 @dataclass

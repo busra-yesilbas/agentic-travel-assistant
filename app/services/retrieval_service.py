@@ -7,6 +7,8 @@ Returns a ranked candidate set for the scoring layer.
 
 from __future__ import annotations
 
+from collections.abc import Callable
+
 from app.core.config import get_settings
 from app.core.logging import get_logger
 from app.schemas.domain import Attraction, BudgetLevel, Hotel, Restaurant, TripIntent
@@ -99,9 +101,8 @@ class RetrievalService:
         filtered = []
         for restaurant in all_restaurants:
             # Family trip: prefer family-friendly options
-            if intent.travel_style.value == "family" and not restaurant.family_friendly:
-                if restaurant.rating < 9.0:
-                    continue
+            if intent.travel_style.value == "family" and not restaurant.family_friendly and restaurant.rating < 9.0:
+                continue
             # Romantic: prefer romantic venues
             if intent.travel_style.value == "romantic":
                 filtered.append((int(restaurant.romantic), restaurant.rating, restaurant))
@@ -120,7 +121,7 @@ class RetrievalService:
         return result
 
     @staticmethod
-    def _make_budget_filter(budget_level: BudgetLevel):
+    def _make_budget_filter(budget_level: BudgetLevel) -> Callable[[Hotel], bool]:
         """Return a predicate that filters hotels by broad budget compatibility."""
         level_map = {
             BudgetLevel.BUDGET: {1, 2},

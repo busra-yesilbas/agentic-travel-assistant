@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from app.ml.features import FEATURE_FUNCTIONS, extract_features
+from app.ml.features import extract_features
 from app.schemas.domain import FeatureContribution, Hotel, RankedHotel, TripIntent
 
 # Default weights (sum to ~1.0). These can be overridden via config.

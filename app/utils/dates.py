@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from datetime import date, datetime, timedelta
-from typing import Optional
 
 
 def today_str() -> str:
@@ -35,7 +34,7 @@ def next_month_start() -> str:
     return first_next.isoformat()
 
 
-def parse_date(text: str) -> Optional[date]:
+def parse_date(text: str) -> date | None:
     """Try to parse a date string in common formats. Returns None on failure."""
     formats = ["%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y", "%d %B %Y", "%B %d %Y"]
     for fmt in formats:

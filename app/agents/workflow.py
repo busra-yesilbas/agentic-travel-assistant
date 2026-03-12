@@ -27,7 +27,7 @@ from app.agents.intent_agent import IntentAgent
 from app.agents.itinerary_agent import ItineraryAgent
 from app.agents.ranking_agent import RankingAgent
 from app.agents.retrieval_agent import RetrievalAgent
-from app.agents.state import TripPlanningState
+from app.agents.state import AgentProtocol, TripPlanningState
 from app.core.config import get_settings
 from app.core.logging import get_logger
 from app.core.metrics import get_registry
@@ -80,7 +80,7 @@ class TripPlanningWorkflow:
         )
         self._answer_agent = AnswerAgent(llm=llm, prompt_manager=prompt_manager)
 
-        self._pipeline = [
+        self._pipeline: list[tuple[str, AgentProtocol]] = [
             ("intent", self._intent_agent),
             ("retrieval", self._retrieval_agent),
             ("ranking", self._ranking_agent),

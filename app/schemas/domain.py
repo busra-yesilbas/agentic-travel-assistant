@@ -8,7 +8,7 @@ the domain model independent of the transport layer.
 
 from __future__ import annotations
 
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 from pydantic import BaseModel, Field, field_validator
@@ -17,14 +17,14 @@ from pydantic import BaseModel, Field, field_validator
 # ---------------------------------------------------------------------------
 # Enumerations
 # ---------------------------------------------------------------------------
-class BudgetLevel(str, Enum):
+class BudgetLevel(StrEnum):
     BUDGET = "budget"
     MID = "mid"
     UPPER_MID = "upper_mid"
     LUXURY = "luxury"
 
 
-class TravelStyle(str, Enum):
+class TravelStyle(StrEnum):
     CULTURAL = "cultural"
     ADVENTURE = "adventure"
     RELAXATION = "relaxation"

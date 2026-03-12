@@ -9,9 +9,9 @@ from __future__ import annotations
 
 import time
 from collections import defaultdict
+from collections.abc import Generator
 from contextlib import contextmanager
 from dataclasses import dataclass, field
-from typing import Generator
 
 from app.core.logging import get_logger
 

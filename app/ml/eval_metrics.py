@@ -13,7 +13,7 @@ using proxy signals from the available structured data.
 
 from __future__ import annotations
 
-from app.schemas.domain import BudgetLevel, Itinerary, RankedHotel, TripIntent
+from app.schemas.domain import Itinerary, RankedHotel, TripIntent
 
 
 class EvaluationMetrics:
@@ -25,7 +25,7 @@ class EvaluationMetrics:
 
     def constraint_satisfaction(
         self,
-        intent: TripIntent,
+        intent: TripIntent | None,
         expected_city: str,
         expected_days: int,
         expected_budget: str,
@@ -36,6 +36,9 @@ class EvaluationMetrics:
         Checks city, days, and budget level against expected values.
         Each dimension contributes equally (1/3 each).
         """
+        if intent is None:
+            return 0.0
+
         scores = []
 
         # City match
@@ -64,7 +67,7 @@ class EvaluationMetrics:
     def recommendation_relevance(
         self,
         ranked_hotels: list[RankedHotel],
-        intent: TripIntent,
+        intent: TripIntent | None,
         key_interests: list[str],
     ) -> float:
         """
@@ -72,7 +75,7 @@ class EvaluationMetrics:
 
         Uses the top-3 hotels and checks feature alignment with interests.
         """
-        if not ranked_hotels:
+        if not ranked_hotels or intent is None:
             return 0.0
 
         interest_set = {i.lower() for i in key_interests}
@@ -165,7 +168,7 @@ class EvaluationMetrics:
     def answer_helpfulness(
         self,
         final_answer: str,
-        intent: TripIntent,
+        intent: TripIntent | None,
     ) -> float:
         """
         Heuristic measure of the final answer's helpfulness.
@@ -177,7 +180,7 @@ class EvaluationMetrics:
         - Contains specific venue/activity names (length proxy)
         - Mentions booking or practical advice
         """
-        if not final_answer:
+        if not final_answer or intent is None:
             return 0.0
 
         scores = []

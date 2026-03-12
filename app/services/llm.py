@@ -19,7 +19,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from app.core.config import get_settings
-from app.core.exceptions import LLMError, LLMParseError, LLMTimeoutError
+from app.core.exceptions import LLMError, LLMParseError
 from app.core.logging import get_logger
 from app.core.metrics import get_registry
 

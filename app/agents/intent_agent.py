@@ -8,10 +8,10 @@ to the MockLLMProvider's heuristic extraction if parsing fails.
 
 from __future__ import annotations
 
+import contextlib
 import time
 
 from app.agents.state import TripPlanningState
-from app.core.exceptions import LLMParseError
 from app.core.logging import get_logger
 from app.schemas.domain import BudgetLevel, TravelStyle, TripIntent
 from app.services.llm import LLMProvider, parse_json_response
@@ -117,15 +117,11 @@ class IntentAgent:
         if req.travelers:
             overrides["travelers"] = req.travelers
         if req.budget_level:
-            try:
+            with contextlib.suppress(ValueError):
                 overrides["budget_level"] = BudgetLevel(req.budget_level)
-            except ValueError:
-                pass
         if req.style:
-            try:
+            with contextlib.suppress(ValueError):
                 overrides["travel_style"] = TravelStyle(req.style)
-            except ValueError:
-                pass
         if req.interests:
             merged = list(set(intent.interests + req.interests))
             overrides["interests"] = merged

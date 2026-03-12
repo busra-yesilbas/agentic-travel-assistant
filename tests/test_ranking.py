@@ -281,7 +281,7 @@ class TestHotelRanker:
         ranker_default = HotelRanker()
         ranker_review_heavy = HotelRanker(feature_weights={"review_score": 1.0})
 
-        ranked_default = ranker_default.rank(sample_hotels, mid_range_cultural_intent, top_k=5)
+        ranker_default.rank(sample_hotels, mid_range_cultural_intent, top_k=5)
         ranked_review = ranker_review_heavy.rank(sample_hotels, mid_range_cultural_intent, top_k=5)
 
         # When only review score matters, the luxury hotel (9.5) should be first
